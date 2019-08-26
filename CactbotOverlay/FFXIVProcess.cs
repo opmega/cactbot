@@ -183,6 +183,7 @@ namespace Cactbot {
     private static int kEntityStructureOffsetJob = 0x38;
     private static int kEntityStructureOffsetLevel = 0x3A;
     private static int kEntityStructureOffsetStatusEffects = 0xC4;
+    private static int kEntityStructureOffsetShieldPercentage = 0x5c;
 
     // A piece of code that reads the job data.
     // The pointer of interest is the first ???????? in the signature.
@@ -439,6 +440,7 @@ namespace Cactbot {
       public int bait = 0;
       public int hp = 0;
       public int max_hp = 0;
+      public int shield_value = 0;
       public int mp = 0;
       public int max_mp = 0;
       public short gp = 0;
@@ -545,6 +547,8 @@ namespace Cactbot {
         data.max_hp = BitConverter.ToInt32(bytes, kEntityStructureOffsetCharacterDetails + kEntityStructureOffsetHpMpTp + 4);
         data.mp = BitConverter.ToInt32(bytes, kEntityStructureOffsetCharacterDetails + kEntityStructureOffsetHpMpTp + 8);
         data.max_mp = BitConverter.ToInt32(bytes, kEntityStructureOffsetCharacterDetails + kEntityStructureOffsetHpMpTp + 12);
+        var shieldPercentage = BitConverter.ToInt32(bytes, kEntityStructureOffsetCharacterDetails + kEntityStructureOffsetShieldPercentage);
+        data.shield_value = shieldPercentage * data.max_hp / 100;
 
         if (IsGatherer(data.job)) {
           data.gp = BitConverter.ToInt16(bytes, kEntityStructureOffsetCharacterDetails + kEntityStructureOffsetGpCp);

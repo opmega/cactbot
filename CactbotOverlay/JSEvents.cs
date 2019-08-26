@@ -103,6 +103,7 @@ namespace Cactbot {
         jobDetail = null;
         bait = e.bait;
         debugJob = e.debug_job;
+        currentShield = e.shield_value;
       }
       public string EventName() { return "onPlayerChangedEvent"; }
 
@@ -122,6 +123,7 @@ namespace Cactbot {
       public int currentCP;
       public int maxCP;
       public string debugJob;
+      public int currentShield;
 
       public Point3F pos;
       public int bait;
