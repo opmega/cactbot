@@ -3,6 +3,7 @@ akadaemia_anyder.js
 byakko-ex.js
 general.js
 hades.js
+holminster_switch.js
 innocence.js
 innocence-ex.js
 e1n.js
@@ -18,6 +19,7 @@ o5s.js
 o6s.js
 o7s.js
 o8s.js
+malikahs_well.js
 mt_gulg.js
 susano-ex.js
 test.js
